@@ -56,7 +56,7 @@ def newAnalyzer():
                 'dateIndex': None
                 }
 
-    analyzer['crimes'] = lt.newList('SINGLE_LINKED', compareIds)
+    analyzer['crimes'] = lt.newList('SINGLE_LINKED', compareIds) # se guardan todos los elementos en una lista.
     analyzer['dateIndex'] = om.newMap(omaptype='BST',
                                       comparefunction=compareDates)
     return analyzer
@@ -197,7 +197,7 @@ def getCrimesByRangeCode(analyzer, initialDate, offensecode):
     """
     crimedate = om.get(analyzer['dateIndex'], initialDate)
     if crimedate['key'] is not None:
-        offensemap = me.getValue(crimedate)['offenseIndex']
+        offensemap = me.getValue(crimedate)['offenseIndex'] # obtengo el valor de la llave 
         numoffenses = m.get(offensemap, offensecode)
         if numoffenses is not None:
             return m.size(me.getValue(numoffenses)['lstoffenses'])
