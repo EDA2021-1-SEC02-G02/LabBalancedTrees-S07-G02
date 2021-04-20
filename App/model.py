@@ -57,7 +57,7 @@ def newAnalyzer():
                 }
 
     analyzer['crimes'] = lt.newList('SINGLE_LINKED', compareIds) # se guardan todos los elementos en una lista.
-    analyzer['dateIndex'] = om.newMap(omaptype='BST',
+    analyzer['dateIndex'] = om.newMap(omaptype='RBT',   # SE CAMBIO PARA QUE AHORA SEA UN ARBOL ROJO NEGRO. 
                                       comparefunction=compareDates)
     return analyzer
 
